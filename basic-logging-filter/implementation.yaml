@@ -1,0 +1,5 @@
+#%Policy Implementation 1.0
+minRuntimeVersion: 1.0.1
+technology: flexGateway
+name: Basic logging filter Implementation
+releaseNotes: "Initial release of the basic logging filter implementation."

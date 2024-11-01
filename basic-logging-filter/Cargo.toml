@@ -1,0 +1,16 @@
+[package]
+name = "basic_logging_filter"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+name="basic_logging_filter"
+path="src/lib.rs"
+
+[dependencies]
+proxy-wasm = { git = "https://github.com/proxy-wasm/proxy-wasm-rust-sdk.git", tag = "v0.2.0" }
+
+[profile.release]
+opt-level = "z"
+lto = "fat"

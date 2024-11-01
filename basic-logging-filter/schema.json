@@ -1,0 +1,14 @@
+{
+    "title": "Basic logging filter",
+    "type": "object",
+    "description": "Logs a message on every incoming HTTP request.",
+    "properties": {},
+    "required": [],
+    "unevaluatedProperties": false,
+    "@context": {
+      "@vocab": "anypoint://vocabulary/policy.yaml#",
+      "security": "anypoint://vocabulary/policy.yaml#"
+    },
+    "$id": "basic-logging-filter",
+    "$schema": "https://json-schema.org/draft/2019-09/schema"
+  }

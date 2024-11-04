@@ -1,0 +1,5 @@
+#%Policy Implementation 1.0
+minRuntimeVersion: 1.0.1
+technology: flexGateway
+name: Logging HTTP request headers Implementation
+releaseNotes: "Initial release of the logging http request headers implementation."

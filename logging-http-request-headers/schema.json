@@ -1,0 +1,14 @@
+{
+    "title": "Logging HTTP request headers",
+    "type": "object",
+    "description": "Logs each HTTP request header received.",
+    "properties": {},
+    "required": [],
+    "unevaluatedProperties": false,
+    "@context": {
+      "@vocab": "anypoint://vocabulary/policy.yaml#",
+      "security": "anypoint://vocabulary/policy.yaml#"
+    },
+    "$id": "logging-http-request-headers",
+    "$schema": "https://json-schema.org/draft/2019-09/schema"
+  }

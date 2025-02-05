@@ -1,0 +1,5 @@
+#%Policy Implementation 1.0
+minRuntimeVersion: 1.0.1
+technology: flexGateway
+name: Log HTTP Headers as JSON Implementation
+releaseNotes: "Initial release of the logging HTTP request headers implementation."

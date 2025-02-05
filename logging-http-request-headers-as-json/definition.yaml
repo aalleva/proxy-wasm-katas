@@ -1,0 +1,9 @@
+#%Policy Definition 0.1
+name: Log HTTP Headers as JSON
+description: Collects all HTTP request headers and logs them as a single JSON-formatted entry.
+category: Logging
+providedCharacteristics: []
+requiredCharacteristics: []
+interfaceScope: ["api", "resource"]
+interfaceTransformation: []
+encryptionSupported: true

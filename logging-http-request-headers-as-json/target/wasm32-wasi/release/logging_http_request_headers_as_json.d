@@ -1,0 +1,1 @@
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/logging-http-request-headers-as-json/target/wasm32-wasi/release/logging_http_request_headers_as_json.wasm: /Users/aalleva/Documents/devel/rust/proxy-wasm-katas/logging-http-request-headers-as-json/src/lib.rs

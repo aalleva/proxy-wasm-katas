@@ -1,0 +1,11 @@
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/logging-http-request-headers-as-json/target/debug/deps/libproxy_wasm-f6a86ae076f4fd1b.rmeta: /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/lib.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/hostcalls.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/traits.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/types.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/allocator.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/dispatcher.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/logger.rs
+
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/logging-http-request-headers-as-json/target/debug/deps/proxy_wasm-f6a86ae076f4fd1b.d: /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/lib.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/hostcalls.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/traits.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/types.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/allocator.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/dispatcher.rs /Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/logger.rs
+
+/Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/lib.rs:
+/Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/hostcalls.rs:
+/Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/traits.rs:
+/Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/types.rs:
+/Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/allocator.rs:
+/Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/dispatcher.rs:
+/Users/aalleva/.cargo/git/checkouts/proxy-wasm-rust-sdk-4ca06ec38212535a/fb7c953/src/logger.rs:

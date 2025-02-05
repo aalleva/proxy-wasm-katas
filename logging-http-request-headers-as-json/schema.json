@@ -1,0 +1,14 @@
+{
+  "title": "Log HTTP Headers as JSON",
+  "type": "object",
+  "description": "Collects all HTTP request headers and logs them as a single JSON-formatted entry.",
+  "properties": {},
+  "required": [],
+  "unevaluatedProperties": false,
+  "@context": {
+    "@vocab": "anypoint://vocabulary/policy.yaml#",
+    "logging": "anypoint://vocabulary/policy.yaml#"
+  },
+  "$id": "log-http-headers-json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema"
+}

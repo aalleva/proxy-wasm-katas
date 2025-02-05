@@ -1,0 +1,10 @@
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/logging-http-request-headers-as-json/target/wasm32-wasi/release/deps/libgetrandom-c7dfe77f69a23a15.rmeta: /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lib.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/util.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/wasi.rs
+
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/logging-http-request-headers-as-json/target/wasm32-wasi/release/deps/libgetrandom-c7dfe77f69a23a15.rlib: /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lib.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/util.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/wasi.rs
+
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/logging-http-request-headers-as-json/target/wasm32-wasi/release/deps/getrandom-c7dfe77f69a23a15.d: /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lib.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/util.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/wasi.rs
+
+/Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lib.rs:
+/Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/error.rs:
+/Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/util.rs:
+/Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/wasi.rs:

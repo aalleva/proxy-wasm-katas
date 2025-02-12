@@ -1,0 +1,19 @@
+[package]
+name = "full_http_request_response_logging"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+name="full_http_request_response_logging"
+path="src/lib.rs"
+
+[dependencies]
+proxy-wasm = { git = "https://github.com/proxy-wasm/proxy-wasm-rust-sdk.git", tag = "v0.2.0" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4.39", features = ["serde"] }
+
+[profile.release]
+opt-level = "z"
+lto = "fat"

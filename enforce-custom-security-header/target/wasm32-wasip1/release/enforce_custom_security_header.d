@@ -1,0 +1,1 @@
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/enforce-custom-security-header/target/wasm32-wasip1/release/enforce_custom_security_header.wasm: /Users/aalleva/Documents/devel/rust/proxy-wasm-katas/enforce-custom-security-header/src/lib.rs

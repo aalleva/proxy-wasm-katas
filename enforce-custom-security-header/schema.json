@@ -1,0 +1,14 @@
+{
+    "title": "Security Header Enforcement Filter",
+    "type": "object",
+    "description": "Ensures authentication propagation and security compliance by injecting custom headers into HTTP requests and responses.",
+    "properties": {},
+    "required": [],
+    "unevaluatedProperties": false,
+    "@context": {
+      "@vocab": "anypoint://vocabulary/policy.yaml#",
+      "security": "anypoint://vocabulary/policy.yaml#"
+    },
+    "$id": "enforce-custom-security-header",
+    "$schema": "https://json-schema.org/draft/2019-09/schema"
+  }

@@ -1,0 +1,9 @@
+#%Policy Definition 0.1
+name: Security Header Enforcement Filter
+description: Ensures authentication propagation and security compliance by injecting custom headers into HTTP requests and responses.
+category: Security
+providedCharacteristics: []
+requiredCharacteristics: []
+interfaceScope: ["api", "resource"]
+interfaceTransformation: []
+encryptionSupported: true

@@ -1,0 +1,30 @@
+{
+    "title": "Basic Rate Limiting Filter",
+    "type": "object",
+    "description": "This Proxy-Wasm filter enforces rate limiting by restricting the number of requests allowed per Client-ID.",
+    "properties": {
+        "max_requests": {
+            "title": "Max Requests",
+            "description": "Maximum number of requests allowed per Client-ID.",
+            "type": "integer",
+            "default": 5
+        },
+        "ttl_seconds": {
+            "title": "TTL Seconds",
+            "description": "Time-to-live for the rate limiting counter in seconds.",
+            "type": "integer",
+            "default": 60
+        }
+    },
+    "required": [
+        "max_requests",
+        "ttl_seconds"
+    ],
+    "unevaluatedProperties": false,
+    "@context": {
+      "@vocab": "anypoint://vocabulary/policy.yaml#",
+      "logging": "anypoint://vocabulary/policy.yaml#"
+    },
+    "$id": "basic-rate-limiting-filter",
+    "$schema": "https://json-schema.org/draft/2019-09/schema"
+  }

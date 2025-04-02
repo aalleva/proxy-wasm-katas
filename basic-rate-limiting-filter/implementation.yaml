@@ -1,0 +1,5 @@
+#%Policy Implementation 1.0
+minRuntimeVersion: 1.0.1
+technology: flexGateway
+name: Basic Rate Limiting filter implementation
+releaseNotes: "Initial release of the basic rate limiting filter implementation."

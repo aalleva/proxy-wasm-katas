@@ -1,0 +1,9 @@
+#%Policy Definition 0.1
+name: Basic Rate Limiting Filter
+description: This Proxy-Wasm filter enforces rate limiting by restricting the number of requests allowed per Client-ID.
+category: QOS
+providedCharacteristics: []
+requiredCharacteristics: []
+interfaceScope: ["api", "resource"]
+interfaceTransformation: []
+encryptionSupported: true

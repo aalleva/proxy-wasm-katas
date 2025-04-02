@@ -1,1 +1,0 @@
-/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/basic-rate-limiting-filter/target/wasm32-wasip1/release/basic_rate_limiting_filter.wasm: /Users/aalleva/Documents/devel/rust/proxy-wasm-katas/basic-rate-limiting-filter/src/lib.rs

@@ -30,7 +30,9 @@ impl RootContext for RateLimitRoot {
     
     fn create_http_context(&self, _: u32) -> Option<Box<dyn HttpContext>> {
         Some(Box::new(RateLimitFilter {
-            config: self.config.clone()
+            config: self.config.clone(),
+            remaining_quota: Some(self.config.max_requests),
+            seconds_until_reset: Some(self.config.ttl_seconds),
         }))
     }
 
@@ -50,6 +52,67 @@ impl RootContext for RateLimitRoot {
 
 struct RateLimitFilter {
     config: RateLimitConfig,
+    remaining_quota: Option<u64>,
+    seconds_until_reset: Option<u64>,
+}
+
+fn increment_shared_counter(key: &str) -> Result<u64, ()> {
+    for _ in 0..5 {
+        let (data, cas_token) = proxy_wasm::hostcalls::get_shared_data(key)
+            .unwrap_or((None, None));
+
+        let mut current = data
+            .map(|d| u64::from_be_bytes(d.try_into().unwrap_or([0; 8])))
+            .unwrap_or(0);       
+        
+        current += 1;
+
+        let result = proxy_wasm::hostcalls::set_shared_data(
+            key, 
+            Some(&current.to_be_bytes()), 
+            cas_token
+        );
+        
+        if result.is_ok() {
+            return Ok(current);
+        }
+
+    }
+
+    Err(())
+}
+
+fn reset_counter(reset_key: &str, counter_key: &str, ttl: u64, now: u64, client_id: &String) -> Option<u64> {
+
+    for _ in 0..5 {
+        // Check last reset timestamp
+        let (data, cas_token) = proxy_wasm::hostcalls::get_shared_data(reset_key)
+            .unwrap_or((None, None));
+        let last_reset = data
+            .map(|d| u64::from_be_bytes(d.try_into().unwrap_or([0; 8])))
+            .unwrap_or(0);
+
+        // Reset counter if more than ttl seconds have passed
+        let elapsed = now.saturating_sub(last_reset);
+        if elapsed > ttl {
+            
+            let result = proxy_wasm::hostcalls::set_shared_data(
+                reset_key,
+                Some(&now.to_be_bytes()),
+                cas_token
+            );
+
+            if result.is_ok() {
+                proxy_wasm::hostcalls::set_shared_data(counter_key, Some(&0_u64.to_be_bytes()), None).ok();
+                proxy_wasm::hostcalls::log(LogLevel::Info, &format!("Reset rate limit for client {}", client_id)).ok();
+                return Some(ttl);
+            }
+        } else {
+            return Some(ttl.saturating_sub(elapsed));
+        }
+    }
+
+    None
 }
 
 impl Context for RateLimitFilter {}
@@ -68,33 +131,31 @@ impl HttpContext for RateLimitFilter {
             let reset_key = format!("rate_limit_reset_{}", client_id);
             let counter_key = format!("rate_limit_count_{}", client_id);
 
-            // Check last reset timestamp
-            let (ts_bytes_opt, _) = proxy_wasm::hostcalls::get_shared_data(&reset_key).unwrap_or((None, Some(0)));
-            let last_reset = ts_bytes_opt
-                .and_then(|d| Some(u64::from_be_bytes(d.try_into().unwrap_or([0; 8]))))
-                .unwrap_or(0);
-
-            // Reset counter if more than 60 seconds have passed
-            if now.saturating_sub(last_reset) > self.config.ttl_seconds {
-                proxy_wasm::hostcalls::set_shared_data(&reset_key, Some(&now.to_be_bytes()), None).ok();
-                proxy_wasm::hostcalls::set_shared_data(&counter_key, Some(&0_u64.to_be_bytes()), None).ok();
-                proxy_wasm::hostcalls::log(LogLevel::Info, &format!("Reset rate limit ")).ok();
-            }
-            
-            // Retrieve the current request count for the Client-ID
-            let (data, cas) = proxy_wasm::hostcalls::get_shared_data(&&counter_key)
-                .unwrap_or((None, Some(0)));
-            let mut count = data
-                .and_then(|d| Some(u64::from_be_bytes(d.try_into().unwrap_or([0; 8]))))
-                .unwrap_or(0);
+            // Reset counter or get seconds until reset
+            self.seconds_until_reset = reset_counter(&reset_key, &counter_key, self.config.ttl_seconds, now, &client_id);
             
             // Increment the request count
-            count += 1;
-            proxy_wasm::hostcalls::set_shared_data(
-                    &counter_key, 
-                    Some(&count.to_be_bytes()), 
-                    cas
-            ).ok();
+            let count = match increment_shared_counter(&counter_key) {
+                Ok(val) => val,
+                Err(_) => {
+                    proxy_wasm::hostcalls::log(LogLevel::Error, "CAS failed. Could not update request counter.").ok();
+                    
+                    // Send 500 Internal Server Error Response
+                    let json_payload = serde_json::json!({
+                        "error": "Internal Server Error",
+                        "message": "Could not update request counter."
+                    }).to_string();
+                    
+                    
+                    proxy_wasm::hostcalls::send_http_response(
+                        500,
+                        vec![("Content-Type", "text/plain")],
+                        Some(json_payload.as_bytes()),
+                    ).ok();
+                    
+                    return Action::Pause;
+                }
+            };
 
             // Check if the client exceeded the rate limit
             if count > self.config.max_requests {
@@ -102,14 +163,23 @@ impl HttpContext for RateLimitFilter {
                 proxy_wasm::hostcalls::log(LogLevel::Warn, &log_msg).ok();
 
                 // Send 429 Too Many Requests Response
+                let json_payload = serde_json::json!({
+                    "error": "Too Many Requests",
+                    "message": format!("Client {} exceeded rate limit ({} reqs).", client_id, count),
+                    "retry_after": self.seconds_until_reset
+                }).to_string();
+                
                 proxy_wasm::hostcalls::send_http_response(
                     429,
-                    vec![("Content-Type", "text/plain"), ("Retry-After", "60")],
-                    Some(b"Too Many Requests"),
+                    vec![("Content-Type", "application/json")],
+                    Some(json_payload.as_bytes()),
                 ).ok();
                 
                 return Action::Pause;
-            }            
+            } else {
+                let remaining = self.config.max_requests.saturating_sub(count);
+                self.remaining_quota = Some(remaining);        
+            }           
 
             let log_msg = format!("Client {} made a request. Allowing.", client_id);
             proxy_wasm::hostcalls::log(LogLevel::Info, &log_msg).ok();        
@@ -121,4 +191,21 @@ impl HttpContext for RateLimitFilter {
         
         Action::Continue
     }
+
+    fn on_http_response_headers(&mut self, _num_headers: usize, _end_of_stream: bool) -> Action {
+        
+        self.set_http_response_header("X-RateLimit-Limit", Some(&self.config.max_requests.to_string()));
+        
+        if let Some(seconds_until_reset) = self.seconds_until_reset {
+            self.set_http_response_header("X-RateLimit-Reset", Some(&seconds_until_reset.to_string()));
+        }
+
+        if let Some(remaining_quota) = self.remaining_quota {
+            self.set_http_response_header("X-RateLimit-Remaining", Some(&remaining_quota.to_string()));
+        
+        }
+        
+        Action::Continue
+    }
+
 }

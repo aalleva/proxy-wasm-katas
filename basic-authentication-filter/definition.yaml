@@ -1,0 +1,9 @@
+#%Policy Definition 0.1
+name: Basic Authentication Filter
+description: This Proxy-Wasm filter enforces HTTP Basic Authentication by validating the Authorization header against configured credentials.
+category: Security
+providedCharacteristics: []
+requiredCharacteristics: []
+interfaceScope: ["api", "resource"]
+interfaceTransformation: []
+encryptionSupported: true

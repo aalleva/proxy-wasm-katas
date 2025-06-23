@@ -1,0 +1,10 @@
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/basic-authentication-filter/target/wasm32-wasip1/release/deps/libgetrandom-0396ff49c51a1829.rmeta: /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/lib.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/error.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/util.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/wasi.rs
+
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/basic-authentication-filter/target/wasm32-wasip1/release/deps/libgetrandom-0396ff49c51a1829.rlib: /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/lib.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/error.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/util.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/wasi.rs
+
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/basic-authentication-filter/target/wasm32-wasip1/release/deps/getrandom-0396ff49c51a1829.d: /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/lib.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/error.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/util.rs /Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/wasi.rs
+
+/Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/lib.rs:
+/Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/error.rs:
+/Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/util.rs:
+/Users/aalleva/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.16/src/wasi.rs:

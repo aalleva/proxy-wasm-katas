@@ -1,0 +1,28 @@
+{
+  "title": "Basic Authentication Filter",
+  "type": "object",
+  "description": "This Proxy-Wasm filter enforces HTTP Basic Authentication by validating the Authorization header.",
+  "properties": {
+    "username": {
+      "title": "Username",
+      "description": "The expected username for HTTP Basic Authentication.",
+      "type": "string"
+    },
+    "password": {
+      "title": "Password",
+      "description": "The expected password for HTTP Basic Authentication.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "username",
+    "password"
+  ],
+  "unevaluatedProperties": false,
+  "@context": {
+    "@vocab": "anypoint://vocabulary/policy.yaml#",
+    "logging": "anypoint://vocabulary/policy.yaml#"
+  },
+  "$id": "basic-authentication-filter",
+  "$schema": "https://json-schema.org/draft/2019-09/schema"
+}

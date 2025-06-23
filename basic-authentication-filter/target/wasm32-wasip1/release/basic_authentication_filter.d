@@ -1,0 +1,1 @@
+/Users/aalleva/Documents/devel/rust/proxy-wasm-katas/basic-authentication-filter/target/wasm32-wasip1/release/basic_authentication_filter.wasm: /Users/aalleva/Documents/devel/rust/proxy-wasm-katas/basic-authentication-filter/src/lib.rs
